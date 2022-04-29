@@ -11,6 +11,11 @@ var imageUrl = ""
 
 var imageEl = document.querySelectorAll(".movieImg")
 var titleEl = document.querySelectorAll(".movieTitle")
+var ratingEl = document.querySelectorAll(".movieRating");
+
+//buttons
+
+var watchListBtn = document.querySelectorAll(".watchlistBtn");
 
 // function getMovieImage(){
 //   for (var i =0; i < 12; i++)
@@ -38,17 +43,19 @@ var titleEl = document.querySelectorAll(".movieTitle")
   .then(function (data) {
     console.log(data);
     for (var i = 0; i < 12; i++) {
-       movieTitle = data.items[i].fullTitle;
+       movieTitle = data.items[i].title;
        console.log(movieTitle)
-       titleEl[i] = movieTitle;
+       titleEl[i].textContent = movieTitle;
+
        movieRating = data.items[i].imDbRating;
        console.log(movieRating);
+       ratingEl[i].textContent = movieRating;
          // this will generate the image for each of the box
        imageUrl = data.items[i].image;
        console.log(imageUrl)
     
        imageEl[i].src = imageUrl;
-       titleEl[i] = movieTitle;
+       
     }
   });
 

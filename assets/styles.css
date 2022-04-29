@@ -33,3 +33,15 @@
 .card-box:hover {
     box-shadow: 0px 17px 36px 12px rgba(134,134,134,0.29);
 }
+
+.movieImg {
+    position: absolute;
+    object-fit: cover;
+    width: 230px;
+    height: 300px;
+}
+
+.watchlistBtn {
+    padding: 10px;
+    font-size: 20px;
+}
