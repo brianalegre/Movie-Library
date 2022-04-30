@@ -40,8 +40,8 @@ function getPopularMovies() {
         console.log('imageURL:', imageUrl)
 
     // Display the Data on Page
-    ratingEl[i].textContent = movieRating;
     titleEl[i].textContent = movieTitle;
+    ratingEl[i].textContent = movieRating;
     imageEl[i].src = imageUrl;
 
     }
