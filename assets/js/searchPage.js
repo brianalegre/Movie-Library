@@ -1,5 +1,12 @@
 $(document).ready(() => {
+  console.log("PAGE LOADED");
+  //check to see if there's a movie to search for in the params
+  var searchTerm = window.location.search.split("searchTerm=")[1];
+  if(searchTerm){
+    getMovies(searchTerm)
+  }
   $('#searchForm').on('submit', (e) => {
+    console.log("SEARCHED FOR SUTFF")
     let searchText = $('#searchText').val();
     getMovies(searchText);
     e.preventDefault();
@@ -8,13 +15,13 @@ $(document).ready(() => {
 
 
 //to search and populate the movie
-function getMovies(searchText){
-  axios.get('http://www.omdbapi.com?s='+searchText+'&apikey=d7842ce1')
+function getMovies(searchText) {
+  axios.get('http://www.omdbapi.com?s=' + searchText + '&apikey=d7842ce1')
     .then((response) => {
       console.log(response);
       let movies = response.data.Search;
       let output = '';
-      $.each(movies, (index, movie) => {
+      $.each(movies, (_index, movie) => {
         output += `
           <div class="col-md-3">
             <div class="well text-center">
@@ -30,25 +37,28 @@ function getMovies(searchText){
     .catch((err) => {
       console.log(err);
     });
-    window.location = 'search.html';
+  //if already on search.html, don't do it
+  if (!window.location.pathname.toLocaleLowerCase().includes("search")) {
+    window.location = `search.html?searchTerm=${searchText}`;
   }
-  
-  //click link in search direct to search html
-  function movieSelected(id){
-    sessionStorage.setItem('movieId', id);
-    window.location = 'movie-info.html';
-    return false;
-  }
-  
-  function getMovie(){
-    let movieId = sessionStorage.getItem('movieId');
-    
-    axios.get('http://www.omdbapi.com?i='+movieId+'&apikey=d7842ce1')
+}
+
+//click link in search direct to search html
+function movieSelected(id) {
+  sessionStorage.setItem('movieId', id);
+  window.location = 'movie-info.html';
+  return false;
+}
+
+function getMovie() {
+  let movieId = sessionStorage.getItem('movieId');
+
+  axios.get('http://www.omdbapi.com?i=' + movieId + '&apikey=d7842ce1')
     .then((response) => {
       console.log(response);
       let movie = response.data;
-      
-      let output =`
+
+      let output = `
       <div class="row">
       <div class="col-md-4">
       <img src="${movie.Poster}" class="thumbnail">
@@ -76,10 +86,10 @@ function getMovies(searchText){
       </div>
       </div>
       `;
-      
+
       $('#movie').html(output);
     })
     .catch((err) => {
       console.log(err);
     });
-  }
+}
