@@ -1,22 +1,64 @@
 
+// Variables
 var myAPI = "k_vfmd1877"
-// movie title for the main page
 var movieTitle = ""
-
-// movie rating for the main page
 var movieRating = 0
-
-// this is the image url
 var imageUrl = ""
 
+
+// HTML Targeting Variables
 var imageEl = document.querySelectorAll(".movieImg")
 var titleEl = document.querySelectorAll(".movieTitle")
 var ratingEl = document.querySelectorAll(".movieRating");
-
-//buttons
-
 var watchListBtn = document.querySelectorAll(".watchlistBtn");
 
+
+// Function for getting popular videos
+function getPopularMovies() {
+  // API Call 
+  fetch(`https://imdb-api.com/en/API/MostPopularMovies/${myAPI}`)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    // Display API Data
+    console.log(data);
+
+    // Loop thru the first 12 movies
+    for (var i = 0; i < 12; i++) {
+
+      // Movie Title
+      movieTitle = data.items[i].title;
+        console.log('movieTitle:', movieTitle)
+
+      // IMDB Rating
+      movieRating = data.items[i].imDbRating;
+        console.log('movieRating:', movieRating);
+      
+      // Movie Picture
+      imageUrl = data.items[i].image;
+        console.log('imageURL:', imageUrl)
+
+    // Display the Data on Page
+    titleEl[i].textContent = movieTitle;
+    ratingEl[i].textContent = movieRating;
+    imageEl[i].src = imageUrl;
+
+    }
+  });
+}
+
+// Call Function on Page Load
+getPopularMovies();
+
+
+
+
+// UNUSED CODE
+// Keep as a reference
+
+
+// /////////////////////////////////////////////////////////////////////////////////
 // function getMovieImage(){
 //   for (var i =0; i < 12; i++)
 //   {
@@ -35,29 +77,6 @@ var watchListBtn = document.querySelectorAll(".watchlistBtn");
 
   // );
 
-//   // top 250
-  fetch(`https://imdb-api.com/en/API/MostPopularMovies/${myAPI}`)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    for (var i = 0; i < 12; i++) {
-       movieTitle = data.items[i].title;
-       console.log(movieTitle)
-       titleEl[i].textContent = movieTitle;
-
-       movieRating = data.items[i].imDbRating;
-       console.log(movieRating);
-       ratingEl[i].textContent = movieRating;
-         // this will generate the image for each of the box
-       imageUrl = data.items[i].image;
-       console.log(imageUrl)
-    
-       imageEl[i].src = imageUrl;
-       
-    }
-  });
 
 // //   // most popular 
 //   fetch('https://imdb-api.com/en/API/MostPopularMovies/k_vfmd1877')
@@ -72,8 +91,8 @@ var watchListBtn = document.querySelectorAll(".watchlistBtn");
 //     }
 //   });
 
-//   youtube trailer
 
+//   youtube trailer
   // fetch('https://imdb-api.com/en/API/YouTubeTrailer/k_vfmd1877/tt1375666')
   // .then(function (response) {
   //   return response.json();
@@ -84,8 +103,8 @@ var watchListBtn = document.querySelectorAll(".watchlistBtn");
   //   console.log(trailerUrl)
   // });
 
-// random generator generating title from a keyword search
 
+// random generator generating title from a keyword search
 //   fetch('https://imdb-api.com/en/API/Keyword/k_vfmd1877/action-hero')
 //   .then(function (response) {
 //     return response.json();
