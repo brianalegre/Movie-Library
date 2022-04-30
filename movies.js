@@ -1,5 +1,7 @@
+// var branfonApi = "k_1ucm7wp5";
+// var vyAPI = "k_sr0i5ybd";
 
-var myAPI = "k_vfmd1877"
+var myAPI = "k_sr0i5ybd"
 // movie title for the main page
 var movieTitle = ""
 

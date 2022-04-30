@@ -20,6 +20,7 @@
     />
     <link rel="stylesheet" href="./assets/styles.css" />
     <title>Movie Search</title> 
+    <!-- <script src="Search.js" defer></script> -->
     <!-- Come back to the title -->
   </head>
 
@@ -59,9 +60,8 @@
                 </div>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-sm-2" type="text" placeholder="Search">
-              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <form id="searchForm">
+              <input type="text" class="form-control" id="searchText" placeholder="Search Movies...">
             </form>
           </div>
         </div>
@@ -82,6 +82,10 @@
     </header>
 
     <section class="section-container">
+
+      <!-- <div class="container">
+        <div id="movies" class="row"></div>
+      </div> -->
       <!-- movie cards -->
       <!-- cards-container = column -->
       <div class="cards-container"> 
@@ -221,5 +225,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="movies.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="Search.js"></script>
+    <script>
+      getMovie();
+    </script>
+    
   </body>
 </html>
