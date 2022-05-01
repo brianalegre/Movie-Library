@@ -83,6 +83,7 @@
     transition: 0.4s ease-in-out;
 }
 
+
 .watchlistBtn:hover:before {
     opacity: 1;
     visibility: visible;
