@@ -1,10 +1,13 @@
-
+// API Keys
 // var branfonApi = "k_1ucm7wp5";
 // var vyAPI = "k_sr0i5ybd";
-var vy2API = "k_e2ggrgmv";
-
-var myAPI = vy2API;
+// var vy2API = "k_e2ggrgmv";
 // movie title for the main page
+// var brianAPI ="k_tp8oqqm0"
+
+var myAPI = "k_tp8oqqm0";
+
+// Variables
 var movieTitle = ""
 var movieRating = 0
 var imageUrl = ""
@@ -15,6 +18,8 @@ var imageEl = document.querySelectorAll(".movieImg")
 var titleEl = document.querySelectorAll(".movieTitle")
 var ratingEl = document.querySelectorAll(".movieRating");
 var watchListBtn = document.querySelectorAll(".watchlistBtn");
+var search = document.getElementById('searchForm')
+var searchKey = document.getElementById('searchText');
 
 
 // Function for getting popular videos
@@ -26,22 +31,22 @@ function getPopularMovies() {
   })
   .then(function (data) {
     // Display API Data
-    console.log(data);
+    // console.log(data);
 
     // Loop thru the first 12 movies
     for (var i = 0; i < 12; i++) {
 
       // Movie Title
       movieTitle = data.items[i].title;
-        console.log('movieTitle:', movieTitle)
+        // console.log('movieTitle:', movieTitle)
 
       // IMDB Rating
       movieRating = data.items[i].imDbRating;
-        console.log('movieRating:', movieRating);
+        // console.log('movieRating:', movieRating);
         
       // Movie Picture
       imageUrl = data.items[i].image;
-        console.log('imageURL:', imageUrl)
+        // console.log('imageURL:', imageUrl)
 
     // Display the Data on Page
     titleEl[i].textContent = movieTitle;
@@ -52,10 +57,28 @@ function getPopularMovies() {
   });
 }
 
+
+
+// Function for searching Movie
+function searchMovie() {
+  // Get Input Value
+  var searchInputVal = document.getElementById('searchText').value.trim();
+  var queryString = "./search.html?q=" + searchInputVal;
+
+  // Go to next page
+  location.assign(queryString)
+}
+
+// Listen for Enter Key to searchMovie
+searchKey.addEventListener('keypress', function (event) {
+  if (event.key === 'Enter' ) {
+    event.preventDefault()
+    searchMovie()
+  }
+})
+
 // Call Function on Page Load
 getPopularMovies();
-
-
 
 
 // UNUSED CODE
@@ -79,7 +102,7 @@ getPopularMovies();
 //     var netflixLink = data.netflix;
 //   }
 
-  // );
+// );
 
 
 // //   // most popular 

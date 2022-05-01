@@ -1,17 +1,30 @@
-$(document).ready(() => {
-  console.log("PAGE LOADED");
-  //check to see if there's a movie to search for in the params
-  var searchTerm = window.location.search.split("searchTerm=")[1];
-  if(searchTerm){
-    getMovies(searchTerm)
-  }
-  $('#searchForm').on('submit', (e) => {
-    console.log("SEARCHED FOR SUTFF")
-    let searchText = $('#searchText').val();
-    getMovies(searchText);
-    e.preventDefault();
-  });
-});
+// $(document).ready(() => {
+//   console.log("PAGE LOADED");
+//   //check to see if there's a movie to search for in the params
+//   var searchTerm = window.location.search.split("searchTerm=")[1];
+//   if(searchTerm){
+//     getMovies(searchTerm)
+//   }
+//   $('#searchForm').on('submit', (e) => {
+//     console.log("SEARCHED FOR SUTFF")
+//     let searchText = $('#searchText').val();
+//     getMovies(searchText);
+//     e.preventDefault();
+//   });
+// });
+
+
+// Get Movie from URL
+var movieParam = document.location.search 
+var queryParam = movieParam.split('=').pop();
+    // Check Results in Dev Tools
+    console.log('movieParam', movieParam)
+    console.log('queryParam', queryParam)
+    // decodeURI opposite of encodeURI
+    console.log('decodueURI', decodeURI(queryParam))
+
+// Display Function on Load
+getMovies(decodeURI(queryParam))
 
 
 //to search and populate the movie
