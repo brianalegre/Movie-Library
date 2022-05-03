@@ -29,7 +29,7 @@ getMovies(decodeURI(queryParam))
 
 //to search and populate the movie
 function getMovies(searchText) {
-  axios.get('http://www.omdbapi.com?s=' + searchText + '&apikey=d7842ce1')
+  axios.get('https://www.omdbapi.com?s=' + searchText + '&apikey=d7842ce1')
     .then((response) => {
       console.log(response);
       let movies = response.data.Search;
@@ -65,6 +65,6 @@ function getMovies(searchText) {
     //click link in search direct to movie info html
     function movieSelected(id) {
       sessionStorage.setItem('movieId', id);
-      window.location = 'movie-info.html';
+      window.location = './movie-info.html';
       // return false;
     }
