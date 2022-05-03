@@ -37,32 +37,41 @@ function getMovies(searchText) {
       $.each(movies, (_index, movie) => {
         output += `
           <div class="col-md-3">
-            <div class="well text-center">
-              <img src="${movie.Poster}">
-              <h5>${movie.Title}</h5>
-              <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
+            <div class="well">
+              <h5 class= "text-center">${movie.Title}</h5>
+            </div>
+            <div class="poster-cards">
+              <img src="${movie.Poster}"/>
+              <div class="textOverlay textOverlay-blur" onclick="movieSelected('${movie.imdbID}')">
+                <span>MOVIE INFO</span>
+              </div>
             </div>
           </div>
-        `;
+          `;
+          
+          
+        });
+        $('#movies').html(output);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      $('#movies').html(output);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  //if already on search.html, don't do it
-  if (!window.location.pathname.toLocaleLowerCase().includes("search")) {
-    window.location = `search.html?searchTerm=${searchText}`;
-  }
-}
-
-//click link in search direct to search html
-function movieSelected(id) {
-  sessionStorage.setItem('movieId', id);
-  window.location = 'movie-info.html';
-  return false;
-}
-
+      //if already on search.html, don't do it
+      if (!window.location.pathname.toLocaleLowerCase().includes("search")) {
+        window.location = `search.html?searchTerm=${searchText}`;
+      } 
+      
+    }
+    
+    //click link in search direct to movie info html
+    function movieSelected(id) {
+      sessionStorage.setItem('movieId', id);
+      window.location = 'movie-info.html';
+      // return false;
+      
+    }
+    
+//Movie Info page
 function getMovie() {
   let movieId = sessionStorage.getItem('movieId');
 
