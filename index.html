@@ -92,12 +92,15 @@
         <!-- movie-cards making it in row -->
         <div class="movie-cards">
 
+          
+
           <div class="movieContainer">
             <h4 class="movieTitle"></h4>
             <div class="card-box">
               <img class="movieImg"></img>
               <p class="movieRating"></p>
               <button class="watchlistBtn">❤️</button>
+
             </div>
           </div>
 
@@ -107,6 +110,7 @@
               <img class="movieImg"></img>
               <p class="movieRating"></p>
               <button class="watchlistBtn">❤️</button>
+              <!-- <button id="getTrailer" class="btn">watch trailer</button> -->
             </div>
           </div>
 
@@ -199,11 +203,13 @@
       </div>
 
       <div class="movieContainer">
+        <button class="trailerBtn"></button>
         <h4 class="movieTitle"></h4>
         <div class="card-box">
           <img class="movieImg"></img>
           <p class="movieRating"></p>
           <button class="watchlistBtn">❤️</button>
+
         </div>
       </div>
 
@@ -231,6 +237,7 @@
     crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/js/searchPage.js"></script>
+    <script src="trailer.js"></script>
     <script>
       getMovie();
     </script>

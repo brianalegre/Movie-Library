@@ -1,6 +1,6 @@
 
 // Variables
-var myAPI = "k_vfmd1877"
+var myAPI = "k_1ucm7wp5"
 var movieTitle = ""
 var movieRating = 0
 var imageUrl = ""
