@@ -1,11 +1,10 @@
 // API Keys
-// var branfonApi = "k_1ucm7wp5";
-// var vyAPI = "k_sr0i5ybd";
-// var vy2API = "k_e2ggrgmv";
-// movie title for the main page
-// var brianAPI ="k_tp8oqqm0"
+var branfonApi = "k_1ucm7wp5";
+var vyAPI = "k_sr0i5ybd";
+var vy2API = "k_e2ggrgmv";
+var brianAPI ="k_tp8oqqm0"
 
-var myAPI = "k_tp8oqqm0";
+var myAPI = vyAPI;
 
 // Variables
 var movieTitle = ""
@@ -67,6 +66,7 @@ function searchMovie() {
 
   // Go to next page
   location.assign(queryString)
+
 }
 
 // Listen for Enter Key to searchMovie
