@@ -102,3 +102,55 @@
     transform: translate(-310%, 350%);
 }
 
+
+/* SEARCH PAGE STYLES BEGINS */
+.well {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+
+.well h5 {
+    font-size: 15px;
+}
+
+.poster-cards {
+    display: block;
+    margin: 25px;
+}
+
+.poster-cards img {
+    position: relative;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.textOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.textOverlay-blur{
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+}
+
+.textOverlay > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.textOverlay:hover {
+    opacity: 1;
+    transition: 0.5s ease;
+    color: rgb(255, 255, 255);
+}
