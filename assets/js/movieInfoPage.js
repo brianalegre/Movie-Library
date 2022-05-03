@@ -1,5 +1,3 @@
-
-
 function getMovie() {
     let movieId = sessionStorage.getItem('movieId');
   
@@ -36,10 +34,11 @@ function getMovie() {
             </div>
         </div>
         `;
-  
-        $('#movie').html(output);
+
+        $('#movies').html(output);
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  } 
+  getMovie();
