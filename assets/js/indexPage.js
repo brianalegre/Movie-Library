@@ -1,14 +1,13 @@
 
 // Variables
 var myAPI = "k_vfmd1877"
-var movieTitle = ""
 var movieRating = 0
 var imageUrl = ""
 
 
 // HTML Targeting Variables
 var imageEl = document.querySelectorAll(".movieImg")
-var titleEl = document.querySelectorAll(".movieTitle")
+// var titleEl = document.querySelectorAll(".movieTitle")
 var ratingEl = document.querySelectorAll(".movieRating");
 var watchListBtn = document.querySelectorAll(".watchlistBtn");
 
@@ -16,7 +15,7 @@ var watchListBtn = document.querySelectorAll(".watchlistBtn");
 // Function for getting popular videos
 function getPopularMovies() {
   // API Call 
-  fetch(`https://imdb-api.com/en/API/MostPopularMovies/${myAPI}`)
+  fetch(`https://imdb-api.com/en/API/MostPopularMovies/${k_vfmd1877}`)
   .then(function (response) {
     return response.json();
   })
@@ -40,14 +39,26 @@ function getPopularMovies() {
         console.log('imageURL:', imageUrl)
 
     // Display the Data on Page
-    titleEl[i].textContent = movieTitle;
+    // titleEl[i].textContent = movieTitle;
     ratingEl[i].textContent = movieRating;
     imageEl[i].src = imageUrl;
+    watchListBtn[i].dataset.movie = data.items[i].title;
 
     }
   });
 }
 
+for (var i = 0; i < watchListBtn.length; i++) {
+  watchListBtn[i].addEventListener("click", function(event){
+    console.log (event.target.attributes[1].value);
+    var Watchlist = JSON.parse(localStorage.getItem("list")) || [];
+      Watchlist.push(event.target.attributes[1].value)
+      localStorage.setItem('list', JSON.stringify(Watchlist))
+
+  })
+
+
+}
 // Call Function on Page Load
 getPopularMovies();
 
