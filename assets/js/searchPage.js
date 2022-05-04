@@ -38,15 +38,16 @@ function getMovies(searchText) {
       let movies = response.data.Search;
       let output = '';
       $.each(movies, (_index, movie) => {
-        output += `
+        output += /*html*/`
           <div class="col-md-3">
             <div class="well">
               <h5 class= "text-center">${movie.Title}</h5>
             </div>
             <div class="poster-cards">
-              <img src="${movie.Poster}"/>
+            <div class="img-container" style="background-image: url('${movie.Poster}')">
               <div class="textOverlay textOverlay-blur" onclick="movieSelected('${movie.imdbID}')">
                 <span>MOVIE INFO</span>
+              </div>
               </div>
             </div>
           </div>
