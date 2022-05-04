@@ -48,7 +48,7 @@ function getPopularMovies() {
         // console.log('imageURL:', imageUrl)
 
     // Display the Data on Page
-    //titleEl[i].textContent = movieTitle;
+    titleEl[i].textContent = movieTitle;
     ratingEl[i].textContent = movieRating;
     imageEl[i].src = imageUrl;
     watchListBtn[i].dataset.movie = data.items[i].title;
