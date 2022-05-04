@@ -31,6 +31,9 @@ div.movieContainer {
 
 
 /* Styles of the body */
+.movieContainer {
+    position: relative;
+}
 
 .movie-cards {
     display: flex;
@@ -56,8 +59,15 @@ div.movieContainer {
 
 }
 
+.movieTitle {
+    font-size: 18px;
+    font-weight: bold;
+    text-overflow: clip;
+    text-align: center;
+}
+
 .card-box{
-    margin: 10px;
+    margin: 35px;
     width: 230px;
     height: 300px;
     border: solid 1px rgba(211, 211, 211, 0.163);
@@ -75,10 +85,113 @@ div.movieContainer {
     object-fit: cover;
     width: 230px;
     height: 300px;
+    border-radius: 10px;
+}
+
+.movieImg:hover {
+    box-shadow: 0px 17px 36px 12px rgba(134,134,134,0.29);
 }
 
 .watchlistBtn {
     padding: 10px;
     font-size: 20px;
+}
+
+    position: absolute;
+    background-color: transparent;
+    font-size: 30px;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(270%, -310%);
+}
+
+.watchlistBtn:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    background-color: #ebeff3da;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 6px;
+    font-size: 15px;
+    border-radius: .4em;
+    top: -100%;
+    left: -100%;
+    width: max-content;
+    transition: 0.4s ease-in-out;
+}
+
+
+.watchlistBtn:hover:before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.movieRating {
+    position: absolute;
+    padding: 7px;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.95);
+    border: none; 
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-310%, 350%);
+}
+
+
+/* SEARCH PAGE STYLES BEGINS */
+.well {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+
+.well h5 {
+    font-size: 15px;
+}
+
+.poster-cards {
+    display: block;
+    margin: 25px;
+}
+
+.poster-cards img {
+    position: relative;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.textOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.textOverlay-blur{
+    backdrop-filter: blur(5px);
+}
+
+.textOverlay > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.textOverlay:hover {
+    opacity: 1;
+    transition: 0.5s ease;
+    color: rgb(255, 255, 255);
 }
 
