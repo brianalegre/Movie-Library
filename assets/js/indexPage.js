@@ -51,10 +51,20 @@ function getPopularMovies() {
     titleEl[i].textContent = movieTitle;
     ratingEl[i].textContent = movieRating;
     imageEl[i].src = imageUrl;
-
+    watchListBtn[i].dataset.movie = data.items[i].title;
     }
   });
 }
+  // Saving to localStorage
+  for (var j = 0; j < watchListBtn.length; j++) {
+    watchListBtn[j].addEventListener("click", function(event){
+      // console.log ('hello', event.target.getAttribute('data-movie'));
+      var Watchlist = JSON.parse(localStorage.getItem("list")) || [];
+        Watchlist.push(event.target.getAttribute('data-movie'))
+          localStorage.setItem('list', JSON.stringify(Watchlist))
+  
+    })
+  }
 
 
 
@@ -78,6 +88,7 @@ searchKey.addEventListener('keypress', function (event) {
 })
 
 // Call Function on Page Load
+
 getPopularMovies();
 
 
