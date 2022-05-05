@@ -25,7 +25,7 @@ var watchListBtn = document.querySelectorAll(".watchlistBtn");
 
 function getWatchListData() {
     // Check if watListTitle has data
-    if (!watchListTitle) {
+    if (!watchListTitle || watchListTitle.length === 0) {
         // JQuery Dynamic HTML Creation
         $(".movie-cards").append(
             $(/*html*/`
@@ -49,7 +49,7 @@ getWatchListData();
 // IMDB Function API Call
 function getWatchListMovies(searchText) {
     // API Call
-    fetch (`https://imdb-api.com/en/API/SearchTitle/k_vfmd1877/${searchText}`)
+    fetch (`https://imdb-api.com/en/API/SearchTitle/k_1ucm7wp5/${searchText}`)
     // fetch (`https://imdb-api.com/en/API/Title/k_vfmd1877/${searchText}`)
 
     .then (function (response) {
@@ -80,12 +80,27 @@ function displayWatchListMovies (movieTitle, moviePoster) {
             <div class="card-box">
             <img class="movieImg" src=${moviePoster}></img>
             <p class="movieRating"></p>
-            <button class="watchlistBtn" data-hover="Add to Watchlist">❤️</button>
+            <button class="watchlistBtn" data-title="${movieTitle}" data-hover="Remove from Watchlist">❌</button>
             </div>
         </div>
         `)
     )
+
+    //Remove from Watchlist
+    $(".watchlistBtn").on("click",function(){
+         var title=$(this).attr("data-title")
+         removeLocalStorageValue(title)
+        location.reload()
+    })
 }
+function removeLocalStorageValue(targetValue) {
+      for (var i = 0;i<watchListTitle.length;i++){
+          if (watchListTitle[i]===targetValue){
+              watchListTitle.splice(i,1)
+          }
+      }
+      localStorage.setItem("list",JSON.stringify(watchListTitle))
+  }
 
 
 // UNUSED CODE
