@@ -25,7 +25,7 @@ var watchListBtn = document.querySelectorAll(".watchlistBtn");
 
 function getWatchListData() {
     // Check if watListTitle has data
-    if (!watchListTitle) {
+    if (!watchListTitle || watchListTitle.length === 0) {
         // JQuery Dynamic HTML Creation
         $(".movie-cards").append(
             $(/*html*/`
@@ -49,7 +49,7 @@ getWatchListData();
 // IMDB Function API Call
 function getWatchListMovies(searchText) {
     // API Call
-    fetch (`https://imdb-api.com/en/API/SearchTitle/k_vfmd1877/${searchText}`)
+    fetch (`https://imdb-api.com/en/API/SearchTitle/k_1ucm7wp5/${searchText}`)
     // fetch (`https://imdb-api.com/en/API/Title/k_vfmd1877/${searchText}`)
 
     .then (function (response) {
