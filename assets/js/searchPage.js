@@ -88,7 +88,7 @@ searchKey.addEventListener('keypress', function (event) {
 
 
 
-    //click link in search direct to movie info html
+    //click on poster in search html, direct to movie-info html
     function movieSelected(id) {
       sessionStorage.setItem('movieId', id);
       window.location = './movie-info.html';

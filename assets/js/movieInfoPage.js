@@ -11,7 +11,7 @@ function getMovie() {
             <section class="mainContainer">
                 <div class= "posterWrapper">
                     <div class="img-container" style="background-image: url('${movie.Poster}')">
-                        <div class="textOverlay textOverlay-blur" onclick="movieSelected('${movie.imdbID}')">
+                        <div class="textOverlay textOverlay-blur" onclick="getTrailer('${movie.imdbID}')">
                             <span><i class="fa-solid fa-play"></i> PLAY TRAILER</span>
                         </div>
                     </div>
@@ -26,7 +26,6 @@ function getMovie() {
                         <div class="imbdRating">
                             <span><strong>IMDB Rating:</strong> ${movie.imdbRating}
                                 <button class="watchlistBtn" data-hover="Add to Watchlist"><i class="fa-solid fa-circle-plus"></i></button>
-                                <div class="trailerBtn"><i class="fa-solid fa-play"></i> Play Trailer</div>
                             </span>
                         </div>
                     
