@@ -4,13 +4,11 @@
     box-sizing: border-box;
 }
 
-body * {
-    box-sizing: border-box;
-}
 
 .row {
     display: flex;
     flex-wrap: wrap;
+    margin-right: 10px;
 }
 
 .mainContainer {
@@ -20,21 +18,21 @@ body * {
 
 .posterWrapper {
     display: flex;
+    align-items: center;
+    margin: 10px;
 }
 
-.posterWrapper img {
-    margin-right: 10px;
+.posterWrapper > div {
+    padding: 20px;
     border-radius: 10px;
 }
 
 .titleDetails {
     box-sizing: border-box;
-    width: max-content;
-
+    margin: 10px;
 }
 
 .titleDetails h2 {
-    box-sizing: border-box;
     width: max-content;
     margin-bottom: 8px;
     flex-wrap: wrap;
@@ -57,11 +55,44 @@ body * {
 
 .imbdRating {
     display: flex;
-    justify-content: space-evenly;
-    margin: 20px 20px 0 0;
+    justify-content: space-between;
+    width: fit-content;
+    margin-top: 10px;
+}
+
+.imbdRating .watchlistBtn {
+    position: relative;
+    margin-left: 20px;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.watchlistBtn:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    background-color: #ebeff3da;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 6px;
+    font-size: 15px;
+    border-radius: .4em;
+    top: -110%;
+    left: -240%;
+    width: max-content;
+    transition: 0.4s ease-in-out;
+}
+
+
+.watchlistBtn:hover:before {
+    opacity: 1;
+    visibility: visible;
 }
 
 .trailerBtn {
+    margin: 10px 0 10px 0;
     border: none;
     background-color: transparent;
     color: rgb(134, 132, 132)
@@ -71,21 +102,58 @@ body * {
     color: rgb(98, 97, 97);
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    justify-self: left;
-}
 .movieOverview {
     display: flex;
     flex-direction: column;
-    width: max-content;
+    flex-wrap: wrap;
 }
 
 .movieCrew {
-    width: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 15px;
+    padding-right: 5px;
 }
+
+.textOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.textOverlay-blur{
+    backdrop-filter: blur(5px);
+}
+
+.textOverlay > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.textOverlay:hover {
+    opacity: 1;
+    transition: 0.5s ease;
+    color: rgb(255, 255, 255);
+}
+
+.img-container {
+    position:relative;
+    min-width: 300px;
+    min-height: 450px;
+    background-size: cover;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
 
 
 

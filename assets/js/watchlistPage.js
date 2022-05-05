@@ -78,7 +78,7 @@ function displayWatchListMovies (movieTitle, moviePoster) {
         <div class="movieContainer">
             <h4 class="movieTitle">${movieTitle}</h4>
             <div class="card-box">
-            <img class="movieImg" src=${moviePoster}></img>
+            <img class="movieImg" src=${moviePoster}>
             <p class="movieRating"></p>
             <button class="watchlistBtn" data-title="${movieTitle}" data-hover="Remove from Watchlist">❌</button>
             </div>
