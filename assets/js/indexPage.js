@@ -60,8 +60,11 @@ function getPopularMovies() {
     watchListBtn[j].addEventListener("click", function(event){
       // console.log ('hello', event.target.getAttribute('data-movie'));
       var Watchlist = JSON.parse(localStorage.getItem("list")) || [];
+      if (Watchlist.indexOf(event.target.getAttribute("data-movie")) ===-1 ) {
         Watchlist.push(event.target.getAttribute('data-movie'))
           localStorage.setItem('list', JSON.stringify(Watchlist))
+      }
+
   
     })
   }
