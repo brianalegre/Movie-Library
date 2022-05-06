@@ -192,31 +192,17 @@ footer {
         flex-wrap: wrap;
 
     }
+    .movieContainer {
+        width: 40%;
+    }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+/* Extra large devices (large laptops and desktops, 1200px and lower) */
 @media only screen and (max-width: 1200px) {
     .cards-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-
     }
-
-    .movieContainer {
-        width: 40%;
-    }
-
-    .card-box .movieImg {
-        display: flex;
-        justify-content: center;
-
-    }
-
-    body {
-        background: yellow;
-    }
-
 
 }
