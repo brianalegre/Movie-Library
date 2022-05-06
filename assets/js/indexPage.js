@@ -4,9 +4,9 @@ var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
 var brianAPI ="k_tp8oqqm0"
 
-var myAPI = brianAPI
 
 // Variables
+var myAPI = vyAPI
 var WenyuAPI = "k_1ucm7wp5"
 var movieTitle = ""
 var movieRating = 0
@@ -20,6 +20,7 @@ var ratingEl = document.querySelectorAll(".movieRating");
 var watchListBtn = document.querySelectorAll(".watchlistBtn");
 var search = document.getElementById('searchForm')
 var searchKey = document.getElementById('searchText');
+var textOverlay = document.querySelectorAll('.textOverlay')
 
 
 // Function for getting popular videos
@@ -31,7 +32,7 @@ function getPopularMovies() {
   })
   .then(function (data) {
     // Display API Data
-    // console.log(data);
+    console.log(data);
 
     // Loop thru the first 12 movies
     for (var i = 0; i < 12; i++) {
@@ -53,6 +54,13 @@ function getPopularMovies() {
     ratingEl[i].textContent = movieRating;
     imageEl[i].src = imageUrl;
     watchListBtn[i].dataset.movie = data.items[i].title;
+    textOverlay[i].dataset.id = data.items[i].id
+    // JQuery Dynamic HTML Creation
+    // $(".moveIMG").append(
+    //   $(/*html*/`
+    //     <div class="textOverlay textOverlay-blur" onclick="movieSelected(${data.items[i].title})"></div>
+    //   `)
+    // )
     }
   });
 }
@@ -62,14 +70,13 @@ function getPopularMovies() {
       // console.log ('hello', event.target.getAttribute('data-movie'));
       var Watchlist = JSON.parse(localStorage.getItem("list")) || [];
       if (Watchlist.indexOf(event.target.getAttribute("data-movie")) ===-1 ) {
-        Watchlist.push(event.target.getAttribute('data-movie'))
+        Watchlist.push(event.target.getAttribute('data-id'))
           localStorage.setItem('list', JSON.stringify(Watchlist))
       }
 
   
     })
   }
-
 
 
 // Function for searching Movie
@@ -95,6 +102,26 @@ searchKey.addEventListener('keypress', function (event) {
 
 getPopularMovies();
 
+
+// Loop thru each Overlay
+  for (var h = 0; h < textOverlay.length; h++) {
+    textOverlay[h].addEventListener('click', movieClicked);
+  }
+
+// Get Movie ID Value
+function movieClicked(event) {
+  var clickedValue = event.target.getAttribute('data-id')
+    // Call Function
+    movieSelected(clickedValue)
+}
+
+
+//click on overlay, direct to movie-info html
+function movieSelected(id) {
+  sessionStorage.setItem('movieId', id);
+  window.location = './movie-info.html';
+  // return false;
+}
 
 // UNUSED CODE
 // Keep as a reference
