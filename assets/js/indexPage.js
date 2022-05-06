@@ -7,6 +7,7 @@ var brianAPI ="k_tp8oqqm0"
 var myAPI = vyAPI;
 
 // Variables
+var myAPI = "k_1ucm7wp5"
 var movieTitle = ""
 var movieRating = 0
 var imageUrl = ""
