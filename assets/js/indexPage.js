@@ -146,7 +146,7 @@ fetch(apiGenreList)
     return response.json();
     })
     .then (function (data) {
-        console.log(data);
+        // console.log(data);
         // Loop thru the data
         for (var m = 0; m < 12; m++) {
            
@@ -167,7 +167,7 @@ fetch(apiGenreList)
 
             // Movie ID
             movieTMDBID = data.results[m].id;
-            console.log(movieTMDBID)
+            // console.log(movieTMDBID)
 
             // Display the Data on Page
             titleEl[m].textContent = movieTMBDTitle;
@@ -175,6 +175,8 @@ fetch(apiGenreList)
             imageEl[m].src = imageTMDBUrl;
             watchListBtn[m].dataset.movie = data.results[m].title;
 
+            setIMDBID()
+            // try sending the fetch to a another function to set the data id
 
 
             var movieCall = `https://api.themoviedb.org/3/movie/${movieTMDBID}?api_key=${apiTMDBKey}&language=en-US`
@@ -183,11 +185,14 @@ fetch(apiGenreList)
                 return responseIMDB.json();
                 })
                 .then ( async function (dataIMDB) {
-                  console.log(dataIMDB)
+                  // console.log(dataIMDB)
+                  imdbID = dataIMDB.imdb_id
+                  console.log('this is id',imdbID)
                     // Loop thru the data
                     for (var n = 0; n < 12; n++) {
                     // Add Data to each card
-                    textOverlay[n].dataset.id = dataIMDB[n].imdb_id
+                    textOverlay[n].dataset.id = imdbID
+
                     // console.log('what is the imdbid', textOverlay[n])
                     }
                 })
