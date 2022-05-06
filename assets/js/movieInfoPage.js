@@ -1,3 +1,5 @@
+var watchListBtn = document.querySelectorAll(".watchlistBtn");
+
 function getMovie() {
     let movieId = sessionStorage.getItem('movieId');
   

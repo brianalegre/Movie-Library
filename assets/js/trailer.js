@@ -15,10 +15,15 @@ function getTrailer(id){
   .then(function (data) {
     console.log(data.videoUrl);
     var trailerUrl = data.videoUrl
-    console.log(trailerUrl);
-    //open trailer link in new tab
-    window.open(trailerUrl, "_blank");
 
+    if(trailerUrl === null){
+      alert("no youtube movie link found")
+    }
+    else{
+      //open trailer link in new tab
+      window.open(trailerUrl, "_blank");
+    }
+ 
   })
   
 }
