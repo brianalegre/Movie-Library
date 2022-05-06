@@ -1,20 +1,13 @@
-// IMDB API Keys
+// API Keys
 var branfonApi = "k_1ucm7wp5";
 var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
-var vy3API= "k_0o1qlzjn";
-var brianAPI ="k_tp8oqqm0";
-var WenyuAPI = "k_1ucm7wp5";
-
-// OMD API Keys
-var brianOMDApiKey = '18b76d55'
-var apiKey = brianOMDApiKey;
-
-var myAPI = vy3API;
-
+var brianAPI ="k_tp8oqqm0"
 
 
 // Variables
+var myAPI = vyAPI
+var WenyuAPI = "k_1ucm7wp5"
 var movieTitle = ""
 var movieRating = 0
 var imageUrl = ""
