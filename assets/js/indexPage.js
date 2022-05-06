@@ -1,13 +1,14 @@
 // API Keys
-var branfonApi = "k_1ucm7wp5";
+var brandonApi = "k_1ucm7wp5";
 var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
-var brianAPI ="k_tp8oqqm0"
+var WenyuAPI = "k_1ucm7wp5"
+var vy3API= "d14fe46a129fa30795065a05a5bc330c";
+var brianAPI ="k_tp8oqqm0";
 
-var myAPI = brianAPI
+var myAPI = vy2API;
 
 // Variables
-var WenyuAPI = "k_1ucm7wp5"
 var movieTitle = ""
 var movieRating = 0
 var imageUrl = ""

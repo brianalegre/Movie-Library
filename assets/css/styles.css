@@ -5,6 +5,10 @@
 }
 
 /* header styles */
+
+.navbar {
+    width: 100%;
+}
 .navbar button {
     margin-bottom: 10px;
     padding: 10px;
@@ -15,6 +19,8 @@
 /* Styles of the body */
 .movieContainer {
     position: relative;
+    width: 25%;
+    flex: 0 0 340px;
 }
 
 .movie-cards {
@@ -24,13 +30,19 @@
 }
 
 .movieTitle {
-    font-size: 18px;
+    width: 80%;
+    padding: 0px 20px;
+    margin: 0px 5%;
+    font-size: 15px;
     font-weight: bold;
-    text-overflow: clip;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     text-align: center;
 }
 
 .card-box{
+    position: relative;
     margin: 35px;
     width: 230px;
     height: 300px;
@@ -61,9 +73,7 @@
     background-color: transparent;
     font-size: 30px;
     border: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(270%, -310%);
+    left: 85%;
 }
 
 .watchlistBtn:before {
@@ -98,9 +108,7 @@
     background-color: rgba(0, 0, 0, 0.95);
     border: none; 
     border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-310%, 350%);
+    top: 95%;
 }
 
 
@@ -166,6 +174,15 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
+footer {
+   margin-top: 20px;
+    padding: 45px;
+    width: 100%;
+    border-top: solid 1px grey;
+    background: rgb(215, 215, 215);
+    text-align: center;
+}
+
 
 /* media queries */
 /* Medium devices (landscape tablets, 768px and up) */
@@ -173,13 +190,33 @@
     .movie-cards {
         display: flex;
         flex-wrap: wrap;
+
     }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    /* .movie-cards {
+@media only screen and (max-width: 1200px) {
+    .cards-container {
         display: flex;
         flex-wrap: wrap;
-    } */
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .movieContainer {
+        width: 40%;
+    }
+
+    .card-box .movieImg {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    body {
+        background: yellow;
+    }
+
+
 }
