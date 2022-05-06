@@ -21,15 +21,6 @@ searchKey.addEventListener('keypress', function (event) {
     searchMovie()
   }
 })
-
-
-
-    //click on poster in search html, direct to movie-info html
-    function movieSelected(id) {
-      sessionStorage.setItem('movieId', id);
-      window.location = './movie-info.html';
-      // return false;
-    }
     
     function getMovie() {
     let movieId = sessionStorage.getItem('movieId');
