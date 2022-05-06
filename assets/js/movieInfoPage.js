@@ -82,4 +82,33 @@ searchKey.addEventListener('keypress', function (event) {
         console.log(err);
       });
   } 
+
+  var myAPI = "k_vfmd1877"
+// // this is the trailer link for the movie selected 
+var trailerLink = ""
+
+
+function getTrailer(id){
+
+  fetch(`https://imdb-api.com/en/API/YouTubeTrailer/${myAPI}/${id}`)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data.videoUrl);
+    console.log(id);
+    var trailerUrl = data.videoUrl
+
+     if(trailerUrl === null){
+      return trailerUrl
+     }
+     else{
+      //open trailer link in new tab
+      window.open(trailerUrl, "_blank");
+   }
+ 
+  })
+  
+}
+
   getMovie();
