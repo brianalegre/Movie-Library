@@ -93,7 +93,6 @@ searchKey.addEventListener('keypress', function (event) {
 })
 
 // Call Function on Page Load
-
 getPopularMovies();
 
 
