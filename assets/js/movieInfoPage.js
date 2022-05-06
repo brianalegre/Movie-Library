@@ -1,6 +1,28 @@
-var watchListBtn = document.querySelectorAll(".watchlistBtn");
+// HTML Targeting Variables
+var searchKey = document.getElementById('searchText');
+  
+// Function for searching Movie
+function searchMovie() {
+  // Get Input Value
+  var searchInputVal = document.getElementById('searchText').value.trim();
+  console.log('hello searchMovie')
+  var queryString = "./search.html?q=" + searchInputVal;
 
-function getMovie() {
+  // Go to next page
+  location.assign(queryString)
+  // getMovies(searchInputVal)
+
+}
+
+// Listen for Enter Key to searchMovie
+searchKey.addEventListener('keypress', function (event) {
+  if (event.key === 'Enter' ) {
+    event.preventDefault()
+    searchMovie()
+  }
+})
+    
+    function getMovie() {
     let movieId = sessionStorage.getItem('movieId');
   
     axios.get('https://www.omdbapi.com?i=' + movieId + '&apikey=d7842ce1')
@@ -51,7 +73,6 @@ function getMovie() {
         <div class="row">
             <hr>
             <a href="https://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
-            <a href="./index.html" class="btn btn-default">Go Back To Search</a>
         </div>
         `;
 

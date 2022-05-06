@@ -17,7 +17,7 @@ function getTrailer(id){
     var trailerUrl = data.videoUrl
 
     if(trailerUrl === null){
-      alert("no youtube movie link found")
+      return trailerUrl
     }
     else{
       //open trailer link in new tab
