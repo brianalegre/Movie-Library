@@ -4,6 +4,7 @@ var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
 var brianAPI ="k_tp8oqqm0"
 var brianAPI2 = "k_kwwx2p9z"
+var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
 
 
 // Variables
@@ -22,6 +23,7 @@ var watchListBtn = document.querySelectorAll(".watchlistBtn");
 var search = document.getElementById('searchForm')
 var searchKey = document.getElementById('searchText');
 var textOverlay = document.querySelectorAll('.textOverlay')
+var imdbArray = [];
 
 
 // Function for getting popular videos
@@ -175,34 +177,61 @@ fetch(apiGenreList)
             imageEl[m].src = imageTMDBUrl;
             watchListBtn[m].dataset.movie = data.results[m].title;
 
-            setIMDBID()
+            getIMDBID(movieTMDBID) 
             // try sending the fetch to a another function to set the data id
 
 
-            var movieCall = `https://api.themoviedb.org/3/movie/${movieTMDBID}?api_key=${apiTMDBKey}&language=en-US`
-            fetch(movieCall)
-              .then (function (responseIMDB) {
-                return responseIMDB.json();
-                })
-                .then ( async function (dataIMDB) {
-                  // console.log(dataIMDB)
-                  imdbID = dataIMDB.imdb_id
-                  console.log('this is id',imdbID)
-                    // Loop thru the data
-                    for (var n = 0; n < 12; n++) {
-                    // Add Data to each card
-                    textOverlay[n].dataset.id = imdbID
-
-                    // console.log('what is the imdbid', textOverlay[n])
-                    }
-                })
+            
+            
 
 
         }
+        setIMDBID()
     })
 
 	
 }
+
+function getIMDBID (movieTMDBID) {
+  console.log('i was called')
+fetch(`https://api.themoviedb.org/3/movie/${movieTMDBID}?api_key=${apiTMDBKey}&language=en-US`)
+              .then (function (responseIMDB) {
+                return responseIMDB.json();
+                })
+                .then ( async function (dataIMDB) {
+
+                  var imdbID = dataIMDB.imdb_id
+                  imdbArray.push(imdbID)
+                  console.log(imdbArray)
+                  
+
+                  // textOverlay[i].dataset.id = data.items[i].id
+                  // setIMDBID(imdbID)
+  
+                  
+                  // Get ID
+                    // Add Data to each card
+                    // console.log('what is the imdbid', textOverlay[n])
+              
+                })
+}
+
+
+function setIMDBID() {
+  console.log('this is my array', imdbArray)
+  console.log('this is my type', typeof(imdbArray))
+
+  console.log('this is my array length', imdbArray.length)
+  console.log('this is my array0', imdbArray[1])
+
+
+  // for (var i = 0; i < 12; i++) {
+  //   textOverlay[i].dataset.id = imdbArray[i]
+  // }
+}
+
+
+
 
 
 // UNUSED CODE
