@@ -165,12 +165,32 @@ fetch(apiGenreList)
             imageTMDBUrl = moviePoster
             // console.log('imageURL:', imageUrl)
 
+            // Movie ID
+            movieTMDBID = data.results[m].id;
+            console.log(movieTMDBID)
+
             // Display the Data on Page
             titleEl[m].textContent = movieTMBDTitle;
             ratingEl[m].textContent = movieTMDBRating;
             imageEl[m].src = imageTMDBUrl;
-            // watchListBtn[i].dataset.movie = data.items[i].title;
-            // textOverlay[i].dataset.id = data.items[i].id
+            watchListBtn[m].dataset.movie = data.results[m].title;
+
+
+
+            var movieCall = `https://api.themoviedb.org/3/movie/${movieTMDBID}?api_key=${apiTMDBKey}&language=en-US`
+            fetch(movieCall)
+              .then (function (responseIMDB) {
+                return responseIMDB.json();
+                })
+                .then ( async function (dataIMDB) {
+                  console.log(dataIMDB)
+                    // Loop thru the data
+                    for (var n = 0; n < 12; n++) {
+                    // Add Data to each card
+                    textOverlay[n].dataset.id = dataIMDB[n].imdb_id
+                    // console.log('what is the imdbid', textOverlay[n])
+                    }
+                })
 
 
         }
