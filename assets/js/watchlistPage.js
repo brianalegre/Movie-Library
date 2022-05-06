@@ -62,9 +62,7 @@ function getWatchListMovies(searchText) {
         // Get Movie Data from API
         var movieTitle = data.results[0].title
         var moviePoster = data.results[0].image;
-            // Display Data to Dev Tools;
-            // console.log('Movie Title:', movieTitle);
-            // console.log('Movie Posetr:', moviePoster);
+    
 
         // Call Function to Display to Page
         displayWatchListMovies (movieTitle, moviePoster)
