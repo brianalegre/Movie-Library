@@ -27,6 +27,44 @@
     border-radius: 10px;
 }
 
+.textOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.textOverlay-blur{
+    backdrop-filter: blur(5px);
+}
+
+.textOverlay > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.textOverlay:hover {
+    opacity: 1;
+    transition: 0.5s ease;
+    color: rgb(255, 255, 255);
+}
+
+.img-container {
+    position:relative;
+    min-width: 300px;
+    min-height: 450px;
+    background-size: cover;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
 .titleDetails {
     box-sizing: border-box;
     margin: 10px;
@@ -85,7 +123,6 @@
     transition: 0.4s ease-in-out;
 }
 
-
 .watchlistBtn:hover:before {
     opacity: 1;
     visibility: visible;
@@ -115,45 +152,6 @@
     margin-right: 15px;
     padding-right: 5px;
 }
-
-.textOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.textOverlay-blur{
-    backdrop-filter: blur(5px);
-}
-
-.textOverlay > * {
-    transform: translateY(20px);
-    transition: transform 0.25s;
-}
-
-.textOverlay:hover {
-    opacity: 1;
-    transition: 0.5s ease;
-    color: rgb(255, 255, 255);
-}
-
-.img-container {
-    position:relative;
-    min-width: 300px;
-    min-height: 450px;
-    background-size: cover;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-}
-
 
 
 
