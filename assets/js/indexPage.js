@@ -32,7 +32,7 @@ function getPopularMovies() {
   })
   .then(function (data) {
     // Display API Data
-    console.log(data);
+    // console.log(data);
 
     // Loop thru the first 12 movies
     for (var i = 0; i < 12; i++) {
@@ -55,12 +55,6 @@ function getPopularMovies() {
     imageEl[i].src = imageUrl;
     watchListBtn[i].dataset.movie = data.items[i].title;
     textOverlay[i].dataset.id = data.items[i].id
-    // JQuery Dynamic HTML Creation
-    // $(".moveIMG").append(
-    //   $(/*html*/`
-    //     <div class="textOverlay textOverlay-blur" onclick="movieSelected(${data.items[i].title})"></div>
-    //   `)
-    // )
     }
   });
 }
