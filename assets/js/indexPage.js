@@ -3,10 +3,11 @@ var branfonApi = "k_1ucm7wp5";
 var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
 var brianAPI ="k_tp8oqqm0"
+var brianAPI2 = "k_kwwx2p9z"
 
 
 // Variables
-var myAPI = vyAPI
+var myAPI = brianAPI2
 var WenyuAPI = "k_1ucm7wp5"
 var movieTitle = ""
 var movieRating = 0
@@ -115,6 +116,69 @@ function movieSelected(id) {
   window.location = './movie-info.html';
   // return false;
 }
+
+
+// Genre / Category Area
+var dropdownEl = document.querySelectorAll(".dropdown-item");
+    for (var k = 0; k < dropdownEl.length; k++) {
+        dropdownEl[k].addEventListener("click", dropdownClicked)
+}
+
+function dropdownClicked(event) {
+	var dropdownValue = event.target.getAttribute('data-genre')
+	getGenre(dropdownValue)
+}
+
+function getGenre(dropdownValue) {
+// Clear existing movies on page
+for (var l = 0; l < 12; l++) {
+    titleEl[l].textContent = "";
+    ratingEl[l].textContent = "";
+    imageEl[l].src = "";
+    watchListBtn[l].dataset.movie = "";
+    textOverlay[l].dataset.id = "";
+}
+// API Call
+var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
+var apiGenreList = `https://api.themoviedb.org/3/discover/movie?api_key=${apiTMDBKey}&with_genres=${dropdownValue}`
+fetch(apiGenreList)
+    .then (function (response) {
+    return response.json();
+    })
+    .then (function (data) {
+        console.log(data);
+        // Loop thru the data
+        for (var m = 0; m < 12; m++) {
+           
+            // Picture variable
+            moviePoster = "https://image.tmdb.org/t/p/w500" + data.results[m].poster_path
+
+            // Movie Title
+            movieTMBDTitle = data.results[m].title;
+            // console.log('movieTitle:', movieTitle)
+
+            // IMDB Rating
+            movieTMDBRating = data.results[m].vote_average;
+            // console.log('movieRating:', movieRating);
+            
+            // Movie Picture
+            imageTMDBUrl = moviePoster
+            // console.log('imageURL:', imageUrl)
+
+            // Display the Data on Page
+            titleEl[m].textContent = movieTMBDTitle;
+            ratingEl[m].textContent = movieTMDBRating;
+            imageEl[m].src = imageTMDBUrl;
+            // watchListBtn[i].dataset.movie = data.items[i].title;
+            // textOverlay[i].dataset.id = data.items[i].id
+
+
+        }
+    })
+
+	
+}
+
 
 // UNUSED CODE
 // Keep as a reference
