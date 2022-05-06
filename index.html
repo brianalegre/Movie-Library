@@ -73,14 +73,11 @@
 
     <section class="section-container">
 
-      <!-- <div class="container">
-        <div id="movies" class="row"></div>
-      </div> -->
-      <!-- movie cards -->
-      <!-- cards-container = column -->
       <div class="cards-container"> 
         <!-- movie-cards making it in row -->
         <div class="movie-cards">
+
+          
 
           <div class="movieContainer">
             <h4 class="movieTitle"></h4>
@@ -88,6 +85,7 @@
               <img class="movieImg"></img>
               <p class="movieRating"></p>
               <button class="watchlistBtn" data-hover="Add to Watchlist">❤️</button>
+
             </div>
           </div>
 
@@ -189,6 +187,7 @@
       </div>
 
       <div class="movieContainer">
+        <button class="trailerBtn"></button>
         <h4 class="movieTitle"></h4>
         <div class="card-box">
           <img class="movieImg"></img>
@@ -197,7 +196,7 @@
         </div>
       </div>
 
-       <div class="movieContainer">
+      <div class="movieContainer">
         <h4 class="movieTitle"></h4>
         <div class="card-box">
           <img class="movieImg"></img>
@@ -205,6 +204,7 @@
           <button class="watchlistBtn" data-hover="Add to Watchlist">❤️</button>
         </div>
       </div>
+
    </div>
 
  </div>
@@ -212,17 +212,26 @@
 
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- I don't think we need this at all -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> <!-- I don't think we need this at all -->
+    <!-- script befow is added so that the nav bar can work. Bootswtach needs bootstrap JS to work -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="./assets/js/indexPage.js"></script>
     <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<<<<<<< HEAD
     <script src="./assets/js/watchlistPage.js"></script>
+=======
+    <!-- <script src="./assets/js/watchlistPage.js"></script> -->
+>>>>>>> main
     <!-- <script src="./assets/js/searchPage.js"></script> -->
     <!-- <script>
+    <script src="./assets/js/searchPage.js"></script>
+    <script src="trailer.js"></script>
+    <script>
       getMovie();
     </script> -->
     

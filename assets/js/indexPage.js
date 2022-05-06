@@ -7,6 +7,7 @@ var brianAPI ="k_tp8oqqm0"
 var myAPI = vyAPI;
 
 // Variables
+var myAPI = "k_1ucm7wp5"
 var movieTitle = ""
 var movieRating = 0
 var imageUrl = ""
@@ -60,8 +61,11 @@ function getPopularMovies() {
     watchListBtn[j].addEventListener("click", function(event){
       // console.log ('hello', event.target.getAttribute('data-movie'));
       var Watchlist = JSON.parse(localStorage.getItem("list")) || [];
+      if (Watchlist.indexOf(event.target.getAttribute("data-movie")) ===-1 ) {
         Watchlist.push(event.target.getAttribute('data-movie'))
           localStorage.setItem('list', JSON.stringify(Watchlist))
+      }
+
   
     })
   }

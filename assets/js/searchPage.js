@@ -13,6 +13,9 @@
 //   });
 // });
 
+// HTML Targeting Variables
+var searchKey = document.getElementById('searchText');
+
 
 // Get Movie from URL
 var movieParam = document.location.search 
@@ -35,20 +38,20 @@ function getMovies(searchText) {
       let movies = response.data.Search;
       let output = '';
       $.each(movies, (_index, movie) => {
-        output += `
+        output += /*html*/`
           <div class="col-md-3">
             <div class="well">
               <h5 class= "text-center">${movie.Title}</h5>
             </div>
             <div class="poster-cards">
-              <img src="${movie.Poster}"/>
+            <div class="img-container" style="background-image: url('${movie.Poster}')">
               <div class="textOverlay textOverlay-blur" onclick="movieSelected('${movie.imdbID}')">
                 <span>MOVIE INFO</span>
+              </div>
               </div>
             </div>
           </div>
           `;
-          
           
         });
         $('#movies').html(output);
@@ -56,13 +59,36 @@ function getMovies(searchText) {
       .catch((err) => {
         console.log(err);
       });
-      //if already on search.html, don't do it
-      if (!window.location.pathname.toLocaleLowerCase().includes("search")) {
-        window.location = `search.html?searchTerm=${searchText}`;
-      } 
+      // //if already on search.html, don't do it
+      // if (!window.location.pathname.toLocaleLowerCase().includes("search")) {
+      //   window.location = `search.html?searchTerm=${searchText}`;
+      // } 
     }
     
-    //click link in search direct to movie info html
+// Function for searching Movie
+function searchMovie() {
+  // Get Input Value
+  var searchInputVal = document.getElementById('searchText').value.trim();
+  console.log('hello searchMovie')
+  var queryString = "./search.html?q=" + searchInputVal;
+
+  // Go to next page
+  location.assign(queryString)
+  // getMovies(searchInputVal)
+
+}
+
+// Listen for Enter Key to searchMovie
+searchKey.addEventListener('keypress', function (event) {
+  if (event.key === 'Enter' ) {
+    event.preventDefault()
+    searchMovie()
+  }
+})
+
+
+
+    //click on poster in search html, direct to movie-info html
     function movieSelected(id) {
       sessionStorage.setItem('movieId', id);
       window.location = './movie-info.html';
