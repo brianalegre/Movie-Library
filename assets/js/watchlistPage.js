@@ -14,6 +14,9 @@ var branfonApi = "k_1ucm7wp5";
 var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
 var brianAPI ="k_tp8oqqm0"
+var WenyuAPI = "k_1ucm7wp5";
+var brianAPI3 = "k_fg2g4aso";
+
 var myAPI = branfonApi;
 
 
@@ -79,7 +82,6 @@ function displayWatchListMovies (movieTitle, moviePoster) {
             <h4 class="movieTitle">${movieTitle}</h4>
             <div class="card-box">
             <img class="movieImg" src=${moviePoster}>
-            <p class="movieRating"></p>
             <button class="watchlistBtn" data-title="${movieTitle}" data-hover="Remove from Watchlist">❌</button>
             </div>
         </div>

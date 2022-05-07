@@ -2,18 +2,24 @@
 var branfonApi = "k_1ucm7wp5";
 var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
-var brianAPI ="k_tp8oqqm0"
-var brianAPI2 = "k_kwwx2p9z"
+var vy3API= "k_0o1qlzjn";
+var brianAPI ="k_tp8oqqm0";
+var WenyuAPI = "k_1ucm7wp5";
+var brianAPI3 = "k_fg2g4aso";
+var brianAPI2 = "k_kwwx2p9z";
+var brianAPI3 = "k_fg2g4aso";
+
 var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
-var brianAPI3 = "k_fg2g4aso"
 
+// OMD API Keys
+var brianOMDApiKey = '18b76d55'
+var apiKey = brianOMDApiKey;
 
-var myAPI = "k_bkfoa0l6"
+var myAPI = brianAPI3;
+
 
 
 // Variables
-var myAPI = brianAPI3
-var WenyuAPI = "k_1ucm7wp5"
 var movieTitle = ""
 var movieRating = 0
 var imageUrl = ""
