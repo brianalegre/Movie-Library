@@ -8,7 +8,7 @@ var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
 var brianAPI3 = "k_fg2g4aso"
 var WenyuAPI = "k_1ucm7wp5"
 
-var myAPI = brianAPI  
+var myAPI = brianAPI2;  
 
 // Variables
 var movieTitle = ""
