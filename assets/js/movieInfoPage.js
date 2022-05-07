@@ -1,6 +1,6 @@
 // HTML Targeting Variables
 var searchKey = document.getElementById('searchText');
-  
+
 // Function for searching Movie
 function searchMovie() {
   // Get Input Value
@@ -16,21 +16,21 @@ function searchMovie() {
 
 // Listen for Enter Key to searchMovie
 searchKey.addEventListener('keypress', function (event) {
-  if (event.key === 'Enter' ) {
+  if (event.key === 'Enter') {
     event.preventDefault()
     searchMovie()
   }
 })
-    
-    function getMovie() {
-    let movieId = sessionStorage.getItem('movieId');
-  
-    axios.get('https://www.omdbapi.com?i=' + movieId + '&apikey=d7842ce1')
-      .then((response) => {
-        console.log(response);
-        let movie = response.data;
-  
-        let output = /*html*/`
+
+function getMovie() {
+  let movieId = sessionStorage.getItem('movieId');
+
+  axios.get('https://www.omdbapi.com?i=' + movieId + '&apikey=d7842ce1')
+    .then((response) => {
+      console.log(response);
+      let movie = response.data;
+
+      let output = /*html*/`
         <div class="row">
             <section class="mainContainer">
                 <div class= "posterWrapper">
@@ -76,39 +76,61 @@ searchKey.addEventListener('keypress', function (event) {
         </div>
         `;
 
-        $('#movies').html(output);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  } 
+      $('#movies').html(output);
+      var watchListBtn = document.querySelector(".watchlistBtn");
+    
+      watchListBtn.dataset.movie = movie.Title;
 
-  var myAPI = "k_vfmd1877"
+      saveToWatchlist();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+var myAPI = "k_vfmd1877"
 // // this is the trailer link for the movie selected 
 var trailerLink = ""
 
 
-function getTrailer(id){
+function getTrailer(id) {
 
   fetch(`https://imdb-api.com/en/API/YouTubeTrailer/${myAPI}/${id}`)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data.videoUrl);
-    console.log(id);
-    var trailerUrl = data.videoUrl
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data.videoUrl);
+      console.log(id);
+      var trailerUrl = data.videoUrl
 
-     if(trailerUrl === null){
-      return trailerUrl
-     }
-     else{
-      //open trailer link in new tab
-      window.open(trailerUrl, "_blank");
-   }
- 
-  })
-  
+      if (trailerUrl === null) {
+        return trailerUrl
+      }
+      else {
+        //open trailer link in new tab
+        window.open(trailerUrl, "_blank");
+      }
+
+    })
+
 }
 
-  getMovie();
+getMovie();
+
+function saveToWatchlist() {  // Saving to localStorage
+  var watchListBtn = document.querySelector(".watchlistBtn");
+  console.log(watchListBtn)
+  watchListBtn.addEventListener("click", function (event) {
+    event.stopPropagation()
+    console.log(event.currentTarget)
+    // console.log ('hello', event.target.getAttribute('data-movie'));
+    var Watchlist = JSON.parse(localStorage.getItem("list")) || [];
+    if (Watchlist.indexOf(event.currentTarget.getAttribute("data-movie")) === -1) {
+      Watchlist.push(event.currentTarget.getAttribute('data-movie'))
+      localStorage.setItem('list', JSON.stringify(Watchlist))
+    }
+
+
+  })
+}
