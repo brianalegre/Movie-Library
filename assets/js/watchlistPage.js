@@ -16,7 +16,7 @@ var vy2API = "k_e2ggrgmv";
 var brianAPI ="k_tp8oqqm0";
 var brianAPI3 = "k_fg2g4aso";
 
-var myAPI = brianAPI3;
+var myAPI = vyAPI;
 
 
 // HTML Targeting Variables
