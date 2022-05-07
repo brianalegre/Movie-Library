@@ -29,16 +29,45 @@
       <h1 class="display-3">Watchlist</h1>
       <p class="lead">Your Saved Movies</p>
       
-      <nav class="navbar">  
-          <button>Romcom</button>
-          <button>Action</button>
-          <button>Horror</button>
-          <button>Kids</button>
-          <button>Watchlist</button>
-          <a href="./index.html"><button>Home</button></a>
-            <form class="form"> 
-                <input id="search" type="text" placeholder="search movies..."/>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Bootleg</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor03">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="./index.html">Home
+                  <!-- <span class="visually-hidden">(current)</span> -->
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./watchlist.html">Watchlist</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" data-genre="28" href="#">Action</a>
+                  <a class="dropdown-item" data-genre="16" href="#">Animation</a>
+                  <a class="dropdown-item" data-genre="35" href="#">Comedy</a>
+                  <a class="dropdown-item" data-genre="14" href="#">Fantasy</a>
+                  <a class="dropdown-item" data-genre="10749" href="#">Romance</a>
+
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+              </li>
+            </ul>
+            <form id="searchForm">
+              <input type="text" class="form-control" id="searchText" placeholder="Search Movies...">
             </form>
+          </div>
+        </div>
       </nav>
     
     </header>
@@ -60,4 +89,9 @@
     <script src="./assets/js/watchlistPage.js"></script>
     <!-- <script src="./assets/js/trailer.js"></script> -->
   </body>
+
+  <footer>
+    Made by your fellow developers in Orange County, CA © 2022 All rights reserved.
+  </footer>
+
 </html>
