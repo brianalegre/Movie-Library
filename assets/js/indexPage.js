@@ -6,14 +6,11 @@ var brianAPI ="k_tp8oqqm0"
 var brianAPI2 = "k_kwwx2p9z"
 var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
 var brianAPI3 = "k_fg2g4aso"
+var WenyuAPI = "k_1ucm7wp5"
 
-
-var myAPI = "k_bkfoa0l6"
-
+var myAPI = brianAPI  
 
 // Variables
-var myAPI = brianAPI3
-var WenyuAPI = "k_1ucm7wp5"
 var movieTitle = ""
 var movieRating = 0
 var imageUrl = ""
