@@ -1,14 +1,28 @@
-// API Keys
+// IMDB Keys
 var branfonApi = "k_1ucm7wp5";
 var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
+var WenyuAPI = "k_1ucm7wp5"
 var brianAPI ="k_tp8oqqm0"
 var brianAPI2 = "k_kwwx2p9z"
-var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
 var brianAPI3 = "k_fg2g4aso"
-var WenyuAPI = "k_1ucm7wp5"
+var brianAPI4 = "k_yx2zcq84"
+var freshIMDBAPI = "k_q1dpykev"
 
-var myAPI = brianAPI2;  
+
+// TMDB Keys
+var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
+var freshTMDBAPI = "27f5c0e001f75b164e65468044b81922"
+
+
+// OMDB Keys
+var bradonAPI = "d7842ce1"
+var brianOMDAPI = "18b76d55"
+var brianOMDAPI2 = "b9f227a0"
+var freshOMDBAPI = "87b5ba0e"
+
+// Current API Keys
+var myAPI = "k_bkfoa0l6"
 
 // Variables
 var movieTitle = ""
@@ -146,8 +160,8 @@ for (var l = 0; l < 12; l++) {
 
 }
 // API Call
-var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
-var apiGenreList = `https://api.themoviedb.org/3/discover/movie?api_key=${apiTMDBKey}&with_genres=${dropdownValue}`
+// var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
+var apiGenreList = `https://api.themoviedb.org/3/discover/movie?api_key=${freshTMDBAPI}&with_genres=${dropdownValue}`
 fetch(apiGenreList)
     .then (function (response) {
     return response.json();
@@ -193,7 +207,7 @@ function getIMDBID () {
   // get data from each text overlay
   for (let i = 0; i < 12; i++) {
     var tmdbID = textOverlay[i].getAttribute('data-tmdb')
-    fetch(`https://api.themoviedb.org/3/movie/${tmdbID}?api_key=${apiTMDBKey}&language=en-US`)
+    fetch(`https://api.themoviedb.org/3/movie/${tmdbID}?api_key=${freshTMDBAPI}&language=en-US`)
       .then (function (response) {
         return response.json()
       })

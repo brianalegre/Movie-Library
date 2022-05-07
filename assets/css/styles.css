@@ -117,6 +117,7 @@
     position: relative;
     width: 100%;
     flex: 0 0 340px;
+    /* flex-wrap: wrap; */
 }
 
 .title {
@@ -126,11 +127,13 @@
     text-overflow: ellipsis;
     overflow: hidden;
     text-align: center;
+    
 }
 
 .poster-cards {
     display: block;
-    margin: 15px 20px 15px 20px;
+    /* margin: 15px 20px 15px 20px; */
+    margin: 0 auto;
 }
 
 .poster-cards img {
@@ -190,18 +193,50 @@
     text-align: center;
 }
 
+.col-md-3 {
+    flex-wrap: wrap;
+    width: 20%;
+}
+
 
 /* media queries */
 
 
 /* Medium devices (landscape tablets, 768px and up) */
-/* @media only screen and (min-width: 768px) {
-    
-} */
-
+@media only screen and (max-width: 973px) {
+    .movieTitle {
+        font-size: 20px;
+    }
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and lower) */
-/* @media only screen and (max-width: 995px) {
-    
+@media only screen and (max-width: 1400px) {
+    .movie-cards {
+        flex-wrap: wrap;
+        width: 70%;
+        margin: 0 auto;
+    }
+    .movieTitle {
+        margin: 0 auto;
+    }
 
-} */
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and lower) */
+@media only screen and (max-width: 1000px) {
+    .col-md-3 {
+        flex-wrap: wrap;
+        margin: 0 auto;
+        width: 70%;
+    }
+    .poster-cards {
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+    .img-container {
+        width: 300px;
+        height: 400px;
+        margin: 0 auto;
+    }
+    
+}

@@ -1,3 +1,34 @@
+// IMDB Keys
+var branfonApi = "k_1ucm7wp5";
+var vyAPI = "k_sr0i5ybd";
+var vy2API = "k_e2ggrgmv";
+var WenyuAPI = "k_1ucm7wp5"
+var brianAPI ="k_tp8oqqm0"
+var brianAPI2 = "k_kwwx2p9z"
+var brianAPI3 = "k_fg2g4aso"
+var brianAPI4 = "k_yx2zcq84"
+var freshIMDBAPI = "k_q1dpykev"
+
+
+// TMDB Keys
+var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
+var freshTMDBAPI = "27f5c0e001f75b164e65468044b81922"
+
+
+// OMDB Keys
+var bradonAPI = "d7842ce1"
+var brianOMDBAPI = "18b76d55"
+var brianOMDBAPI2 = "b9f227a0"
+var freshOMDBAPI = "87b5ba0e"
+
+// Current API Keys
+var myAPI = "k_bkfoa0l6"
+
+// Variables
+var movieTitle = ""
+var movieRating = 0
+var imageUrl = ""
+
 // HTML Targeting Variables
 var searchKey = document.getElementById('searchText');
 
@@ -25,7 +56,7 @@ searchKey.addEventListener('keypress', function (event) {
 function getMovie() {
   let movieId = sessionStorage.getItem('movieId');
 
-  axios.get('https://www.omdbapi.com?i=' + movieId + '&apikey=d7842ce1')
+  axios.get('https://www.omdbapi.com?i=' + movieId + '&apikey=87b5ba0e')
     .then((response) => {
       console.log(response);
       let movie = response.data;
