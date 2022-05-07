@@ -39,20 +39,20 @@ function getMovies(searchText) {
       let output = '';
       $.each(movies, (_index, movie) => {
         output += /*html*/`
-          <div class="col-md-3">
-            <div class= container>
-              <div class="title">
-                ${movie.Title}
+        <div class="col-md-3">
+          <div class= container>
+            <div class="title">
+              ${movie.Title}
             </div>
-              <div class="poster-cards">
-                <div class="img-container" style="background-image: url('${movie.Poster}')">
-                  <div class="textOverlay textOverlay-blur" onclick="movieSelected('${movie.imdbID}')">
-                    <span>MOVIE INFO</span>
-                  </div>
-                </div>
+          </div>
+          <div class="poster-cards">
+            <div class="img-container" style="background-image: url('${movie.Poster}')">
+              <div class="textOverlay textOverlay-blur" onclick="movieSelected('${movie.imdbID}')">
+                <span>MOVIE INFO</span>
               </div>
             </div>
           </div>
+        </div>
           `;
           
         });
