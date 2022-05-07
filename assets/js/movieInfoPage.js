@@ -40,7 +40,7 @@ function getMovie() {
                         </div>
                     </div>
                     <div class= "titleDetails">
-                        <h2>${movie.Title}</h2> 
+                        <a href="https://imdb.com/title/${movie.imdbID}" target="_blank"><h2>${movie.Title}</h2></a>
                         
                         <div class="details">
                             <span class="rated">${movie.Rated}</span>
@@ -69,12 +69,12 @@ function getMovie() {
                 </div>          
             </section>
         </div>
-
-        <div class="row">
-            <hr>
-            <a href="https://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
-        </div>
+        
         `;
+        // <div class="row">
+        //     <br>
+        //     <a href="https://imdb.com/title/${movie.imdbID}" target="_blank">View IMDB</a>
+        // </div>
 
       $('#movies').html(output);
       var watchListBtn = document.querySelector(".watchlistBtn");

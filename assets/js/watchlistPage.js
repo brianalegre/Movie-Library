@@ -13,8 +13,10 @@ var apiKey = brianOMDApiKey;
 var branfonApi = "k_1ucm7wp5";
 var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
-var brianAPI ="k_tp8oqqm0"
-var myAPI = branfonApi;
+var brianAPI ="k_tp8oqqm0";
+var brianAPI3 = "k_fg2g4aso";
+
+var myAPI = brianAPI3;
 
 
 // HTML Targeting Variables
