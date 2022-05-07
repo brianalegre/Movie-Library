@@ -14,7 +14,7 @@ var branfonApi = "k_1ucm7wp5";
 var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
 var brianAPI ="k_tp8oqqm0"
-var myAPI = vyAPI;
+var myAPI = branfonApi;
 
 
 // HTML Targeting Variables
@@ -49,7 +49,7 @@ getWatchListData();
 // IMDB Function API Call
 function getWatchListMovies(searchText) {
     // API Call
-    fetch (`https://imdb-api.com/en/API/SearchTitle/k_sr0i5ybd/${searchText}`)
+    fetch (`https://imdb-api.com/en/API/SearchTitle/${myAPI}/${searchText}`)
     // fetch (`https://imdb-api.com/en/API/Title/k_vfmd1877/${searchText}`)
 
     .then (function (response) {
