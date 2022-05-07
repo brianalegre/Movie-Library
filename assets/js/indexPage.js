@@ -1,11 +1,15 @@
-// IMDB API Keys
+// API Keys
 var branfonApi = "k_1ucm7wp5";
 var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
 var vy3API= "k_0o1qlzjn";
 var brianAPI ="k_tp8oqqm0";
 var WenyuAPI = "k_1ucm7wp5";
-var brianAPI3 = "k_fg2g4aso"
+var brianAPI3 = "k_fg2g4aso";
+var brianAPI2 = "k_kwwx2p9z";
+var brianAPI3 = "k_fg2g4aso";
+
+var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
 
 // OMD API Keys
 var brianOMDApiKey = '18b76d55'
@@ -29,6 +33,8 @@ var watchListBtn = document.querySelectorAll(".watchlistBtn");
 var search = document.getElementById('searchForm')
 var searchKey = document.getElementById('searchText');
 var textOverlay = document.querySelectorAll('.textOverlay')
+var imdbArray = [];
+var tmdbArray = [];
 
 
 // Function for getting popular videos
@@ -122,6 +128,98 @@ function movieSelected(id) {
   sessionStorage.setItem('movieId', id);
   window.location = './movie-info.html';
   // return false;
+}
+
+
+// Genre / Category Area
+var dropdownEl = document.querySelectorAll(".dropdown-item");
+    for (var k = 0; k < dropdownEl.length; k++) {
+        dropdownEl[k].addEventListener("click", dropdownClicked)
+}
+
+function dropdownClicked(event) {
+	var dropdownValue = event.target.getAttribute('data-genre')
+	getGenre(dropdownValue)  
+}
+
+function getGenre(dropdownValue) {
+// Clear existing movies on page
+for (var l = 0; l < 12; l++) {
+    titleEl[l].textContent = "";
+    ratingEl[l].textContent = "";
+    imageEl[l].src = "";
+    watchListBtn[l].dataset.movie = "";
+    textOverlay[l].dataset.id = "";
+    textOverlay[l].dataset.tmdb = "";
+    imdbArray = [];
+
+}
+// API Call
+var apiTMDBKey =  "8cf89ee258e6c6c4527e2e49299d8de9"
+var apiGenreList = `https://api.themoviedb.org/3/discover/movie?api_key=${apiTMDBKey}&with_genres=${dropdownValue}`
+fetch(apiGenreList)
+    .then (function (response) {
+    return response.json();
+    })
+    .then (function (data) {
+        // Loop thru the data
+        for (var m = 0; m < 12; m++) {
+            // Picture variable
+            moviePoster = "https://image.tmdb.org/t/p/w500" + data.results[m].poster_path
+
+            // Movie Title
+            movieTMBDTitle = data.results[m].title;
+            // console.log('movieTitle:', movieTitle)
+
+            // IMDB Rating
+            movieTMDBRating = data.results[m].vote_average;
+            // console.log('movieRating:', movieRating);
+            
+            // Movie Picture
+            imageTMDBUrl = moviePoster
+            // console.log('imageURL:', imageUrl)
+
+            // Movie ID
+            movieTMDBID = data.results[m].id;
+            // console.log(movieTMDBID)
+            tmdbArray.push(movieTMDBID)
+            
+
+            // Display the Data on Page
+            titleEl[m].textContent = movieTMBDTitle;
+            ratingEl[m].textContent = movieTMDBRating;
+            imageEl[m].src = imageTMDBUrl;
+            watchListBtn[m].dataset.movie = data.results[m].title;
+            textOverlay[m].dataset.tmdb = movieTMDBID
+          }
+
+          getIMDBID()
+
+    })
+}
+
+function getIMDBID () {
+  // get data from each text overlay
+  for (let i = 0; i < 12; i++) {
+    var tmdbID = textOverlay[i].getAttribute('data-tmdb')
+    fetch(`https://api.themoviedb.org/3/movie/${tmdbID}?api_key=${apiTMDBKey}&language=en-US`)
+      .then (function (response) {
+        return response.json()
+      })
+      .then (function (data) {
+        imdbArray.push(data.imdb_id)
+        if(i == 11) 
+          addDataset()
+      })
+  } 
+}
+
+function addDataset() {
+  console.log('addDataset Called')
+  for (var i = 0; i < 12; i++) {
+    textOverlay[i].dataset.id = imdbArray[i]
+  }
+
 }
 
 // UNUSED CODE

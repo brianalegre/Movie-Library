@@ -13,7 +13,6 @@ var apiKey = brianOMDApiKey;
 var branfonApi = "k_1ucm7wp5";
 var vyAPI = "k_sr0i5ybd";
 var vy2API = "k_e2ggrgmv";
-var vy3API= "k_0o1qlzjn";
 var brianAPI ="k_tp8oqqm0"
 var WenyuAPI = "k_1ucm7wp5";
 var brianAPI3 = "k_fg2g4aso";
@@ -64,9 +63,11 @@ function getWatchListMovies(searchText) {
         console.log(data)
 
         // Get Movie Data from API
-        var movieTitle = data.results[0].title;
+        var movieTitle = data.results[0].title
         var moviePoster = data.results[0].image;
-    
+            // Display Data to Dev Tools;
+            // console.log('Movie Title:', movieTitle);
+            // console.log('Movie Posetr:', moviePoster);
 
         // Call Function to Display to Page
         displayWatchListMovies (movieTitle, moviePoster)

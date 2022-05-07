@@ -4,10 +4,6 @@
 }
 
 /* header styles */
-
-.navbar {
-    width: 100%;
-}
 .navbar button {
     margin-bottom: 10px;
     padding: 10px;
@@ -29,19 +25,13 @@
 }
 
 .movieTitle {
-    width: 80%;
-    padding: 0px 20px;
-    margin: 0px 5%;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    text-overflow: clip;
     text-align: center;
 }
 
 .card-box{
-    position: relative;
     margin: 35px;
     width: 230px;
     height: 300px;
@@ -72,7 +62,9 @@
     background-color: transparent;
     font-size: 30px;
     border: none;
-    left: 85%;
+    top: 50%;
+    left: 50%;
+    transform: translate(270%, -310%);
 }
 
 .watchlistBtn:before {
@@ -107,7 +99,9 @@
     background-color: rgba(0, 0, 0, 0.95);
     border: none; 
     border-radius: 50%;
-    top: 95%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-310%, 350%);
 }
 
 
@@ -185,6 +179,7 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
+
 footer {
    margin-top: 20px;
     padding: 45px;
@@ -193,7 +188,6 @@ footer {
     background: rgb(215, 215, 215);
     text-align: center;
 }
-
 
 /* media queries */
 

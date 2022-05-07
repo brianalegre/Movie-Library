@@ -1,7 +1,7 @@
 # Project1
 
 # Description
-
+A movie query library that displays information based on popularity, categeory, and user input. Users are able to save their interests to our watchlist, for their convenience.
 
 # Site Preview
 <p align="center">
@@ -9,12 +9,15 @@
 </p>
 
 # Github Links
-- Repository:
-- Deployed:
+- Repository: https://github.com/brianalegre/Project1
+- Deployed: https://brianalegre.github.io/Project1/
 
 # Technologies Used
-IMDB API - 
-TMDB API - 
+- OMDB API
+- IMDB API
+- TMDB API
+- Bootswatch
+- JQuery
 
 
 # Criteria
