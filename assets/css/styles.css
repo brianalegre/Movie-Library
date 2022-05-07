@@ -191,13 +191,13 @@ footer {
 
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
     
-}
+} */
 
 
 /* Extra large devices (large laptops and desktops, 1200px and lower) */
-@media only screen and (max-width: 995px) {
+/* @media only screen and (max-width: 995px) {
     
 
-}
+} */
