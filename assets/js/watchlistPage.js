@@ -16,7 +16,7 @@ var vy2API = "k_e2ggrgmv";
 var brianAPI ="k_tp8oqqm0";
 var brianAPI3 = "k_fg2g4aso";
 
-var myAPI = brianAPI3;
+var myAPI = vyAPI;
 
 
 // HTML Targeting Variables
@@ -102,9 +102,8 @@ function displayWatchListMovies (movieTitle, moviePoster) {
         <div class="movieContainer">
             <h4 class="movieTitle">${movieTitle}</h4>
             <div class="card-box">
-            <img class="movieImg" src=${moviePoster}>
-            <p class="movieRating"></p>
-            <button class="watchlistBtn" data-title="${movieTitle}" data-hover="Remove from Watchlist">❌</button>
+                <img class="movieImg" src=${moviePoster}>
+                <button class="watchlistBtn" data-title="${movieTitle}" data-hover="Remove from Watchlist">❌</button>
             </div>
         </div>
         `)

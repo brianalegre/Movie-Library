@@ -52,7 +52,7 @@ function getMovies(searchText) {
               </div>
             </div>
           </div>
-        </div>
+          </div>
           `;
           
         });
