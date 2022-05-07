@@ -17,6 +17,7 @@ A movie query library that displays information based on popularity, categeory, 
 - IMDB API
 - TMDB API
 - Bootswatch
+- JQuery
 
 
 # Criteria
