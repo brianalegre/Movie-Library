@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-
 }
 
 /* header styles */
@@ -19,7 +18,7 @@
 /* Styles of the body */
 .movieContainer {
     position: relative;
-    width: 25%;
+    width: 100%;
     flex: 0 0 340px;
 }
 
@@ -115,18 +114,28 @@
 /* SEARCH PAGE STYLES BEGINS */
 .well {
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
-
 }
 
-.well h5 {
-    font-size: 15px;
+.container {
+    position: relative;
+    width: 100%;
+    flex: 0 0 340px;
+}
+
+.title {
+    padding: 0px 20px;
+    margin: 0px 5%;
+    width: 100%;
+    font-size: 15px; white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
 }
 
 .poster-cards {
     display: block;
-    margin: 25px;
+    margin: 15px 20px 15px 20px;
 }
 
 .poster-cards img {
@@ -141,6 +150,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    color: whitesmoke;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,6 +160,7 @@
 
 .textOverlay-blur{
     backdrop-filter: blur(5px);
+    border-radius: 8px;
 }
 
 .textOverlay > * {
@@ -185,24 +196,16 @@ footer {
 
 
 /* media queries */
+
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .movie-cards {
-        display: flex;
-        flex-wrap: wrap;
-
-    }
-    .movieContainer {
-        width: 40%;
-    }
+    
 }
 
 
 /* Extra large devices (large laptops and desktops, 1200px and lower) */
-@media only screen and (max-width: 1200px) {
-    .cards-container {
-        display: flex;
-        flex-wrap: wrap;
-    }
+@media only screen and (max-width: 995px) {
+    
 
 }
