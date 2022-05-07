@@ -21,6 +21,28 @@ var myAPI = branfonApi;
 var imageEl = document.querySelectorAll(".movieImg")
 var titleEl = document.querySelectorAll(".movieTitle")
 var watchListBtn = document.querySelectorAll(".watchlistBtn");
+var searchKey = document.getElementById('searchText');
+
+// Function for searching Movie
+function searchMovie() {
+    // Get Input Value
+    var searchInputVal = document.getElementById('searchText').value.trim();
+    console.log('hello searchMovie')
+    var queryString = "./search.html?q=" + searchInputVal;
+  
+    // Go to next page
+    location.assign(queryString)
+    // getMovies(searchInputVal)
+  
+  }
+  
+  // Listen for Enter Key to searchMovie
+  searchKey.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      searchMovie()
+    }
+  })
 
 
 function getWatchListData() {
