@@ -1,7 +1,11 @@
 # Project1
 
 # Description
-A movie query library that displays information based on popularity, categeory, and user input. Users are able to save their interests to our watchlist, for their convenience.
+Created a web application of a collection of popular movies, that shows the information, rating, and trailer for the user.
+We came up with the movie library concept because we wanted to create a simplified way for the user to search and find information on the latest and/or popular movies. 
+As a movie fanatic we want to provide an easy, user-friendly website to help find their favorite movie, or a movie they have never seen before.
+A feature that is added to the movie library is a Watchlist button which gives the user an option to create a movie list to watch the movie and remove.
+
 
 # Site Preview
 <p align="center">
